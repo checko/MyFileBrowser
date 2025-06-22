@@ -1,0 +1,11 @@
+// Android.bp for FileManager system app
+android_app {
+    name: "FileManager",
+    srcs: ["src/**/*.kt"],
+    manifest: "AndroidManifest.xml",
+    privileged: true, // Installs to /system/priv-app
+    certificate: "platform", // Signs with platform keys
+    resource_dirs: ["res"],
+    platform_apis: true, // <-- Add this line
+    // Add any additional AIDL or assets as needed
+}
