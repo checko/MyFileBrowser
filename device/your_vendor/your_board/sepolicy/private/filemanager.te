@@ -7,10 +7,10 @@ init_daemon_domain(filemanager)
 
 allow system_server filemanager_exec:file { read execute open getattr map };
 
-allow filemanager data_file:dir { search open read getattr };
-allow filemanager data_file:file { open read getattr };
-allow filemanager sdcard_data_file:dir { search open read getattr };
-allow filemanager sdcard_data_file:file { open read getattr };
+allow filemanager app_data_file:dir { search open read getattr };
+allow filemanager app_data_file:file { open read getattr };
+allow filemanager media_rw_data_file:dir { search open read getattr };
+allow filemanager media_rw_data_file:file { open read getattr };
 
 allow filemanager rootfs:dir { search };
 allow filemanager system_file:dir { search };
