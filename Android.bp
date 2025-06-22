@@ -1,11 +1,11 @@
-// Android.bp for FileManager system app
+// Android.bp for MyFileBrowser system app
 android_app {
-    name: "FileManager",
+    name: "MyFileBrowser",
     srcs: ["src/**/*.kt"],
     manifest: "AndroidManifest.xml",
     privileged: true, // Installs to /system/priv-app
     certificate: "platform", // Signs with platform keys
     resource_dirs: ["res"],
-    platform_apis: true, // <-- Add this line
+    platform_apis: true,
     // Add any additional AIDL or assets as needed
 }

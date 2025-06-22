@@ -1,4 +1,4 @@
-package com.example.filemanager
+package com.example.myfilebrowser
 
 import android.app.Activity
 import android.app.AlertDialog
