@@ -11,14 +11,8 @@
   ```makefile
   PRODUCT_PACKAGES += MyFileBrowser
   ```
-- Or, add to your device/product makefile (e.g. `device/<vendor>/<board>/<product>.mk`).
-
-## Platform Signing
-- Build with platform keys (default for `certificate: "platform"` in Android.bp).
-- If signing manually:
-  ```
-  java -jar signapk.jar platform.x509.pem platform.pk8 MyFileBrowser.apk MyFileBrowser-signed.apk
-  ```
+## Get permissions
+- Add the content of privapp-permissions-myfilebrower.xml to framework/base/data/etc/privapp-permissions.xml
 
 ## Build Commands
 ```sh
@@ -26,16 +20,6 @@
 source build/envsetup.sh
 lunch <your_target>
 m MyFileBrowser
-```
-
-## Flash & Test
-```sh
-adb root
-adb remount
-adb push out/target/product/<device>/system/priv-app/MyFileBrowser/MyFileBrowser.apk /system/priv-app/MyFileBrowser/
-adb shell pm install -r /system/priv-app/MyFileBrowser/MyFileBrowser.apk
-adb shell setenforce 1 # Ensure SELinux is enforcing
-adb shell am start -n com.example.myfilebrowser/.MainActivity
 ```
 
 ## SELinux Policy
