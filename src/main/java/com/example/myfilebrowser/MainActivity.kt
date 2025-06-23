@@ -13,14 +13,18 @@ import java.io.File
 class MainActivity : Activity() {
     private lateinit var listView: ListView
     private lateinit var adapter: ArrayAdapter<String>
-    private var currentDir: File = File("/storage/emulated/0")
+    private var currentDir: File = File("/")
     private var files: List<File> = emptyList()
+    private val rootDirectories = listOf(
+        File("/storage/emulated/0"),
+        File("/data/data")
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         listView = findViewById(R.id.listView)!!
-        showFiles(currentDir)
+        showRootDirectories()
 
         listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             val file = files[position]
@@ -42,6 +46,13 @@ class MainActivity : Activity() {
         }
     }
 
+    private fun showRootDirectories() {
+        files = rootDirectories
+        val names = files.map { "[${it.name}]" }
+        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, names)
+        listView.adapter = adapter
+    }
+
     private fun showFiles(dir: File) {
         files = try {
             dir.listFiles()?.sortedWith(compareBy({ !it.isDirectory }, { it.name })) ?: emptyList()
@@ -57,7 +68,11 @@ class MainActivity : Activity() {
     override fun onBackPressed() {
         if (currentDir.parentFile != null && currentDir.path != "/") {
             currentDir = currentDir.parentFile!!
-            showFiles(currentDir)
+            if (currentDir.path == "/") {
+                showRootDirectories()
+            } else {
+                showFiles(currentDir)
+            }
         } else {
             super.onBackPressed()
         }
