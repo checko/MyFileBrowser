@@ -16,9 +16,9 @@
 
 ## Build Commands
 ```sh
-# In AOSP root
+# In AOSP root, for cuttlefish emulator
 source build/envsetup.sh
-lunch <your_target>
+lunch aosp_cf_x86_64_phone-trunk-user 
 m MyFileBrowser
 ```
 
