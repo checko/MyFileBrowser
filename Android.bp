@@ -9,3 +9,10 @@ android_app {
     platform_apis: true,
     // Add any additional AIDL or assets as needed
 }
+
+//prebuilt_etc {
+//    name: "privapp-permissions-myfilebrowser.xml",
+//    src: "privapp-permissions-myfilebrowser.xml",
+//    relative_install_path: "permissions",
+    // soc_specific: true,  // Optional, usually not needed for app-specific permissions
+//}

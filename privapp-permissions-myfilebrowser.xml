@@ -1,0 +1,5 @@
+<privapp-permissions>
+    <privapp-permissions package="com.example.myfilebrowser">
+        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    </privapp-permissions>
+</privapp-permissions>
