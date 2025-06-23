@@ -11,9 +11,6 @@
   ```makefile
   PRODUCT_PACKAGES += MyFileBrowser
   ```
-## Get permissions
-- Add the content of privapp-permissions-myfilebrower.xml to framework/base/data/etc/privapp-permissions.xml
-
 ## Build Commands
 ```sh
 # In AOSP root, for cuttlefish emulator
