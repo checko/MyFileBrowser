@@ -17,3 +17,4 @@ allow filemanager system_file:dir { search };
 allow filemanager storage_file:dir { search };
 
 allow filemanager logd:unix_stream_socket connectto;
+allow filemanager radio_service:service_manager find;
